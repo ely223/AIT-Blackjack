@@ -1,0 +1,36 @@
+<h1>{{username}}'s Notes</h1>
+
+<div class="section group">
+
+	<div class="col span_1_of_3">
+		<h3> Create New </h3>
+
+		<div class="section group">
+			<div class="col span_1_of_2">
+				<a href="/users/{{username}}/list/create"> <button class = "button"> List </button> </a> 
+			</div>
+			<div class="col span_1_of_2"> 
+				<a href="/users/{{username}}/note/create"> <button class = "button"> Note </button> </a>
+			</div>
+		</div>
+	</div>
+
+	<div class="col span_1_of_3">
+		<h3> My Lists </h3>
+		<ul> {{#each list}}
+			<li><a href="/users/list/{{this.slug}}">{{this.name}}</a></li>
+		{{/each}} </ul>
+	</div>
+	
+	<div class="col span_1_of_3">
+
+		<h3> My Notes </h3>
+		<ul> {{#each note}}
+			<li><a href="/users/note/{{this.slug}}">{{this.name}}</a> </li>
+		{{/each}} </ul>
+
+	</div>
+
+</div>
+
+

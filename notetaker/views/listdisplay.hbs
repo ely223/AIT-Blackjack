@@ -1,0 +1,44 @@
+<h1>{{usaname}}'s Notes</h1>
+
+<div class="section group">
+	<div class="col span_1_of_3">
+		<h3> {{Title}} </h3>
+		<form id = "font" method="POST" action="/item/check">
+
+			<ul> {{#each Item}}
+				{{#if this.checked}}
+					<strike>{{this.item_name}} </strike> <br>
+				{{else}}
+					<input type="checkbox" name="checked" value = "{{this.item_name}}"> {{this.item_name}} <br>
+				{{/if}}
+			{{/each}} </ul>
+
+			<input type="hidden" name="slug" value = "{{slugName}}" >
+
+			<input class = "button" type="submit" value= "Check Off Items">
+
+		</form>   
+	</div>
+	<div class="col span_1_of_3">
+		<form id = "create_item" method="POST" action="/users/item/create">
+			<h3> Add another item... </h3>
+			<input id = "input" type="text" placeholder = "laundry" name="item" required> 
+			<br>
+			<input type="hidden" name="slug" value = "{{slugName}}">
+
+			<input class = "button" type="submit" value= "Add" required>
+		</form>  
+	</div>
+
+	<div class="col span_1_of_3">
+	<h3> Change font size </h3>
+
+		<input id = "testsize" type = "number">
+		&nbsp;
+		&nbsp;
+
+		<button class = "button" onclick = "javascript: fontSize();"> Go! </button>
+		<div id = "message"> </div>
+	</div>
+
+</div>

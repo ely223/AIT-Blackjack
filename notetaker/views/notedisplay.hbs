@@ -1,0 +1,16 @@
+<h1>{{usaname}}'s Notes</h1>
+
+<h3> {{Title}} </h3>
+
+<form method="POST" action="/users/note/update">
+
+<textarea id = "input" name="content"> {{Content}} </textarea>
+
+<br>
+
+<input type="hidden" name="slug" value = "{{slugName}}">
+
+<input class = "button" type="submit" value= "Update" required>
+
+
+</form>  

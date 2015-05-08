@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+
+    <!-- text editor (TinyMCE) external javascript file -->
+    <script type="text/javascript" src="/javascripts/tinymce/tinymce.min.js" ></script>
+    <script type="text/javascript">
+      tinymce.init({
+          selector: "textarea",
+          plugins: [
+              "advlist autolink lists link image charmap print preview anchor",
+              "searchreplace visualblocks code fullscreen",
+              "insertdatetime media table contextmenu paste"
+          ],
+          toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+      });
+    </script>
+
+    <!-- client-side form validation (jquery plugin) -->
+    <script src="/javascripts/jquery-validation/lib/jquery.js"></script>
+    <script src="/javascripts/jquery-validation/dist/jquery.validate.js"></script>
+    <script>
+    $().ready(function() {
+      $("#register_form").validate();
+      $("#login_form").validate();
+      $("#create_note").validate();
+      
+      $("#create_item").validate();
+    });
+
+    </script>
+
+    <!-- javascript form that changes font size of the list using DOM elements -->
+    <script>
+
+    function fontSize(){
+
+      var size = document.getElementById('testsize').value;
+      
+      var el = document.createTextNode('');
+      var parent = document.getElementById("message");
+       parent.appendChild(el);
+
+      if (size == "")
+      {
+        var toReplace = document.getElementById('message').firstChild;
+        var temp = document.createTextNode("enter a number");
+        parent.replaceChild(temp, toReplace);
+      }
+      else if (isNaN(size))
+      {
+        var toReplace = document.getElementById('message').firstChild;
+        var temp = document.createTextNode("enter a number");
+        parent.replaceChild(temp, toReplace);
+      }
+      else
+      {
+        var font_size = size + "px";
+        document.getElementById("font").style.fontSize=font_size;
+      }
+
+    }
+
+    </script>
+
+    <!-- CSS links -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/responsive.css' />
+
+  </head>
+  <body>
+		<div>
+			<a href="/" <h1 class = "title">NoteTaker</h1> </a>
+
+			{{{body}}}
+
+		</div>
+  </body>
+</html>

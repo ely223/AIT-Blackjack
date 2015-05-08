@@ -1,0 +1,18 @@
+
+<h1>Create a New Note</h1>
+
+<form id = "create_note" method="POST" action="/users/note/create">
+
+	<label> Note Name: </label> <br>
+	<input id = "input" type="text" placeholder = "AIT Lecture 20" name="name" required> <br>
+
+	<textarea id = "textbox" name="content"></textarea>
+
+	<input type="hidden" name="slug" value = "{{slugName}}">
+
+	<input type="hidden" name="username" value = "{{username}}">
+
+	<br>
+	<input class = "button" type="submit" value= "Create" required>
+
+</form>  
